@@ -2,7 +2,7 @@ const express = require('express');
 const MongoClient = require('mongodb').MongoClient;
 const bodyParser = require('body-parser');
 const app = express();
-const db = require('./config/db')
+// const db = require('./config/db')
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').load();
