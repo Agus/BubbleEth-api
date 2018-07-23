@@ -7,9 +7,9 @@ module.exports = function(app,db){
     const bubble = { userId: req.body.userId, color: req.body.color};
     db.collection('bubbles').insert(bubble, (err,result) => {
       if (err){
-        res.send({'error': 'Cannot create bubble :('});
+        return res.send({'error': 'Cannot create bubble :('});
       }else{
-        res.send(result.ops[0]);
+        return res.send(result.ops[0]);
       }
     })
   })
@@ -18,9 +18,9 @@ module.exports = function(app,db){
     const details = {'_id': new ObjectID(req.params.id)};
     db.collection('bubbles').findOne(details,(err,item)=>{
       if(err){
-        res.send({'error': 'Was that bubble created?'});
+        return res.send({'error': 'Was that bubble created?'});
       }else{
-        res.send(item);
+        return res.send(item);
       }
     })
   })
@@ -29,9 +29,9 @@ module.exports = function(app,db){
     const details = {'_id': new ObjectID(req.params.id)};
     db.collection('bubbles').update(details,req.body,(err,item)=>{
       if(err){
-        res.send({'error': 'Was that bubble created?'});
+        return res.send({'error': 'Was that bubble created?'});
       }else{
-        res.send(item);
+        return res.send(item);
       }
     })
   })
@@ -40,9 +40,9 @@ module.exports = function(app,db){
     const details = {'_id': new ObjectID(req.params.id)};
     db.collection('bubbles').remove(details,(err,item)=>{
       if(err){
-        res.send({'error': 'That bubble has popped'});
+        return res.send({'error': 'That bubble has popped'});
       }else{
-        res.send(item);
+        return res.send(item);
       }
     })
   })

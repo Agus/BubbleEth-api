@@ -25,7 +25,7 @@ module.exports = function(app, db) {
           return res.send({'error': 'Cannot create user :('});
         } else {
           var token = jwt.sign({
-            id: 'asd'
+            userId: 'asd'
           }, process.env.tokenSecret, {
             expiresIn: 86400 // expires in 24 hours
           });
@@ -34,7 +34,7 @@ module.exports = function(app, db) {
       })
     });
   });
-  app.get('/register', VerifyToken, (req, res) => {
+  app.get('/register', (req, res) => {
     res.send(200);
   });
 
